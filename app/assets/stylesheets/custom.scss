@@ -166,6 +166,9 @@ footer ul li {
 /* sidebar */
 
 aside {
+  .create-entry {
+    width: 100%;
+  }
   section.user_info {
     margin-top: 20px;
   }
@@ -237,12 +240,22 @@ aside {
   padding: 0;
 }
 
-/* microposts */
+/* entries */
 
-.microposts {
+.entries {
+  color: black;
+  a:hover {
+    text-decoration: none;
+  }
   list-style: none;
   padding: 0;
   li {
+    .title {
+      font-size: 30px;
+    }
+    .content {
+      font-size: 19px;
+    }
     padding: 10px 0;
     border-top: 1px solid #e8e8e8;
   }
@@ -252,17 +265,10 @@ aside {
   }
   .content {
     display: block;
-    margin-left: 60px;
-    img {
-      display: block;
-      padding: 5px 0;
-      width: 200px;
-    }
   }
   .timestamp {
     color: $gray-light;
     display: block;
-    margin-left: 60px;
   }
   .gravatar {
     float: left;
