@@ -7,3 +7,46 @@
 		margin-bottom: 10px;
 	}
 }
+
+#new_comment {
+	float: left;
+  width: 90%;
+  input {
+  	height: 50px !important;
+  }
+}
+
+.comments {
+	.row {
+		padding-bottom: 10px;
+		.row {
+			float: left;
+	    width: 90%;
+	    padding-left: 15px;
+	    strong {
+	    	color: #3b5998;
+	    }
+		}
+	}
+}
+
+.container {
+	.col-md-6 {
+		float: none;
+		margin: 0 auto;
+	}
+}
+
+.entry-info {
+	.content {
+
+	}
+	.commented {
+		background-color: rgba(128, 128, 128, 0.08);
+		padding-top: 10px;
+    margin-bottom: 10px;
+	}
+	.form {
+		background-color: rgba(128, 128, 128, 0.08);
+	}
+}

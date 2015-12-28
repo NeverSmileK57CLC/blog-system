@@ -16,6 +16,9 @@ class EntriesController < ApplicationController
   end
 
   def show
+    @entry = Entry.find_by(id: params[:id])
+    @all_comments = @entry.comment_feed
+    @comment = @entry.comments.build
   end
 
   def edit

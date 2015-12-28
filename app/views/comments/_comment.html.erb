@@ -1,0 +1,10 @@
+<div class="row">
+  <%= gravatar_for(current_user) %>
+  <div class="row">
+    <p><strong><%= current_user.name %></strong></p>
+    <p><%= comment.content %></p>
+    <span>
+      <%= time_ago_in_words(comment.created_at) unless comment.created_at.blank? %> ago
+    </span>
+    </div>
+</div>

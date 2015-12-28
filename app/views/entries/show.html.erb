@@ -1,2 +1,22 @@
-<h1><%= @entry.title %></h1>
-<p><%= @entry.content %></p>
+<div class="row entry-info">
+  <div class="col md-3"></div>
+  <div class="col-md-6">
+    <div class="row content">
+        <h3><%= @entry.title %></h3>
+        <p><%= @entry.content %></p>
+    </div>
+    <div class="row commented">
+        <ol class="comments">
+          <%= render @all_comments %>
+        </ol>
+    </div>
+    <div class="row form">
+        <%= gravatar_for(current_user) %>
+        <%= form_for(@comment) do |f| %>
+          <%= f.hidden_field :entry_id, value: @entry.id %>
+          <%= f.text_field :content, placeholder: "Leave a comment..." %>
+        <% end %>
+    </div>
+  </div>
+  <div class="col-md-3"></div>
+</div>
