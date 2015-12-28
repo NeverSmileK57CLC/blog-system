@@ -1,0 +1,22 @@
+<% provide(:title, @user.name) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+        <%= gravatar_for @user, size: 100 %>
+        <div class="name-email">
+          <h1><%= @user.name %></h1>
+          <%= @user.email %>
+        </div>
+      </h1>
+    </section>
+    <section class="stats">
+
+    </section>
+  </aside>
+  <div class="col-md-8">
+
+  </div>
+</div>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

@@ -1,6 +1,12 @@
 source 'https://rubygems.org'
 
-
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+gem 'faker'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+# Use has_secure_password
+gem 'bcrypt'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use sqlite3 as the database for Active Record
