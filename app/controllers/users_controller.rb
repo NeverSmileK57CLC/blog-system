@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
+  before_action :logged_in_user, only: [:edit, :update, :destroy, :following, :followers]
+  before_action :correct_user, only: [:edit, :update]
+
   def new
     @user = User.new
   end
@@ -39,4 +42,13 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
-end end
+    end
+
+    def correct_user
+      set_user
+      unless @user == current_user
+        flash[:alert] = "You do not have right to access this."
+        redirect_to root_path
+      end
+    end
+end
