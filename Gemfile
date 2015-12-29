@@ -5,6 +5,7 @@ gem 'autoprefixer-rails'
 gem 'faker'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+gem 'figaro'
 # Use has_secure_password
 gem 'bcrypt'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

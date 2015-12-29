@@ -7,7 +7,12 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to @user
+      if @user.send_activation_email
+        flash[:notice] = "Please check your email to activate your account."
+      else
+        flash[:alert] = "Can not send email now"
+      end
+      redirect_to root_path
     else
       render :new
     end
