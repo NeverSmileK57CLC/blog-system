@@ -42,3 +42,12 @@ footer ul li {
   float: left;
   margin-left: 15px;
 }
+
+.nav.navbar-right {
+  li {
+    font-size: 18px;
+    &:hover {
+      background-color: black;
+    }
+  }
+}

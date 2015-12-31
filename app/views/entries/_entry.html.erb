@@ -3,7 +3,7 @@
     <%= link_to entry do %>
       <span class="title"><%= entry.title %></span>
     <% end %>
-     - Posted by <%= link_to entry.user.name %>
+     - Posted by <%= link_to entry.user.name, entry.user %>
   </p>
   <p class="content"><%= entry.content %></p>
   <span class="timestamp">
