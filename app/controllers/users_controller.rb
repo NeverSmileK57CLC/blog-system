@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       if @user.send_activation_email
-        flash[:notice] = "#{@user.send_activation_email}Please check your email to activate your account."
+        flash[:notice] = "Please check your email to activate your account."
       else
         flash[:alert] = "Can not send email now"
       end
