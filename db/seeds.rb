@@ -22,7 +22,7 @@ users = User.order(:created_at).take(6)
 50.times do
   title = Faker::Lorem.sentence(1)
   num = Random.rand(4)
-  content = Faker::Lorem.paragraph(num*4)
+  content = Faker::Lorem.paragraph(num*4) + " This is content with #{title}"
   users.each { |user| user.entries.create!(title: title, content: content)}
 end
 

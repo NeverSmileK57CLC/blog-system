@@ -2,6 +2,11 @@ class EntriesController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :set_entry, only: [:show, :edit]
+
+  def index
+    @entries = Entry.all.paginate(page: params[:page])
+  end
+
   def new
     @entry = current_user.entries.build
   end
