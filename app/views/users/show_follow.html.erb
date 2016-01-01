@@ -1,10 +1,10 @@
-<% provide(:title, @user.name) %>
+<% provide(:title, @title) %>
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
       <%= gravatar_for @user, size: 100 %>
       <div class="name-email">
-        <h2><%= @user.name %></h2>
+        <h1><%= @user.name %></h1>
         <%= @user.email %>
       </div>
     </section>
@@ -14,17 +14,13 @@
     <%= link_to("Create Entry", new_entry_path, class: "btn btn-success create-entry") if @user == current_user %>
   </aside>
   <div class="col-md-8">
-    <%= render 'follow_form' if logged_in? %>
-    <div class="col-md-10">
-    <h3>Entries</h3>
-      <ol class="entries">
-        <%= render @entries %>
-      </ol>
-      <%= will_paginate @entries %>
-    </div>
-    <div class="col-md-2"></div>
+    <h3>
+      <% if @users.any? %>
+        <ul class="users follow">
+          <%= render @users %>
+        </ul>
+        <%= will_paginate %>
+      <% end %>
+    </h3>
   </div>
 </div>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>

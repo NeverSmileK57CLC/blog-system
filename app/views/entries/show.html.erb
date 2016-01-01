@@ -1,22 +1,26 @@
 <div class="row entry-info">
-  <div class="col md-3"></div>
-  <div class="col-md-6">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
     <div class="row content">
-        <h3><%= @entry.title %></h3>
-        <p><%= @entry.content %></p>
+        <h2 class="title"><%= @entry.title %></h2>
+        <span class="italic">Posted in <%= @entry.created_at.strftime("%b %d, %Y") %> by <%= link_to @entry.user.name, @entry.user %></span>
+        <p class="content"><%= @entry.content %></p>
     </div>
-    <div class="row commented">
-        <ol class="comments">
-          <%= render @all_comments %>
-        </ol>
-    </div>
+    <% if @entry.user.followers.include?current_user or current_user == @entry.user %>
     <div class="row form">
         <%= gravatar_for(current_user) %>
-        <%= form_for(@comment) do |f| %>
+        <%= form_for(@comment, remote: true) do |f| %>
           <%= f.hidden_field :entry_id, value: @entry.id %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
           <%= f.text_field :content, placeholder: "Leave a comment..." %>
         <% end %>
     </div>
+    <% end %>
+    <div class="row commented">
+        <ol id="comments" class="comments">
+          <%= render @all_comments %>
+        </ol>
+    </div>
   </div>
-  <div class="col-md-3"></div>
+  <div class="col-md-2"></div>
 </div>

@@ -13,6 +13,7 @@
   width: 90%;
   input {
   	height: 50px !important;
+  	padding-left: 10px;
   }
 }
 
@@ -39,7 +40,16 @@
 
 .entry-info {
 	.content {
-
+		.title {
+			text-align: left;
+		}
+		.italic {
+			font-style: italic;
+		}
+		.content {
+			font-size: 17px;
+			margin-top: 20px;
+		}
 	}
 	.commented {
 		background-color: rgba(128, 128, 128, 0.08);
@@ -48,5 +58,6 @@
 	}
 	.form {
 		background-color: rgba(128, 128, 128, 0.08);
+		padding: 10px 0 20px 0;
 	}
 }
