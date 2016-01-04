@@ -1,3 +1,29 @@
 // Place all the styles related to the Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.edit_comment {
+  float: left;
+  width: 90%;
+  input {
+    height: 50px !important;
+    padding-left: 10px;
+  }
+}
+
+.comments {
+  .row.form {
+    width: 102%;
+  }
+  .row {
+    padding-bottom: 10px;
+    .row {
+      float: left;
+      width: 90%;
+      padding-left: 15px;
+      strong {
+        color: #3b5998;
+      }
+    }
+  }
+}

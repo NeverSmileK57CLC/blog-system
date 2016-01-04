@@ -1,7 +1,7 @@
 class EntriesController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
-  before_action :set_entry, only: [:show, :edit]
+  before_action :set_entry, only: [:show, :edit, :update]
 
   def index
     @entries = Entry.all.paginate(page: params[:page])
@@ -30,6 +30,13 @@ class EntriesController < ApplicationController
   end
 
   def update
+    if @entry.update(entry_params)
+      flash[:notice] = "Update entry successfully"
+      redirect_to @entry
+    else
+      flash[:alert] = "Can not update entry"
+      redirect_to root_path
+    end
   end
 
   private
@@ -44,6 +51,9 @@ class EntriesController < ApplicationController
     def correct_user
       # auto send id of entry
       @entry = current_user.entries.find_by(id: params[:id])
-      redirect_to root_path if @entry.nil?
+      if @entry.nil?
+        flash[:alert] = "You do not have right to access this"
+        redirect_to root_path
+      end
     end
 end

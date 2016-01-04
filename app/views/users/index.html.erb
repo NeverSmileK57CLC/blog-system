@@ -1,0 +1,16 @@
+<% provide(:title, "All users") %>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <% if @users.any? %>
+      <%= will_paginate %>
+      <h3>
+        <ul class="users follow">
+          <%= render @users %>
+        </ul>
+      </h3>
+      <%= will_paginate %>
+    <% end %>
+  </div>
+  <div class="col-md-2"></div>
+</div>

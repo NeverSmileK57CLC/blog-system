@@ -18,6 +18,10 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
 
+  def index
+    @users = User.all.paginate(page: params[:page])
+  end
+
   def new
     @user = User.new
   end

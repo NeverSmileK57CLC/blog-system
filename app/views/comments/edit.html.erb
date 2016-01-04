@@ -9,12 +9,22 @@
         <span class="italic">Posted in <%= @entry.created_at.strftime("%b %d, %Y") %> by <%= link_to @entry.user.name, @entry.user %></span>
         <p class="content"><%= @entry.content %></p>
     </div>
-    <% if @entry.user.followers.include?current_user or current_user == @entry.user %>
-    <%= render 'comments/form' %>
-    <% end %>
     <div class="row commented">
         <ol id="comments" class="comments">
-          <%= render @all_comments %>
+          <% @all_comments.each do |comment| %>
+            <% if comment == @comment %>
+              <div class="row form">
+                <%= gravatar_for(current_user) %>
+                <%= form_for(@comment) do |f| %>
+                  <%= f.hidden_field :entry_id, value: @entry.id %>
+                  <%= f.hidden_field :user_id, value: current_user.id %>
+                  <%= f.text_field :content, placeholder: "Leave a comment..." %>
+                <% end %>
+              </div>
+            <% else %>
+              <%= render comment %>
+            <% end %>
+          <% end %>
         </ol>
     </div>
   </div>

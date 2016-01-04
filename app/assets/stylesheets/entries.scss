@@ -61,3 +61,32 @@
 		padding: 10px 0 20px 0;
 	}
 }
+
+.edit-entry {
+	height: 0;
+    left: 0;
+    overflow: visible;
+    position: absolute;
+    right: 0;
+    .glyphicon.glyphicon-pencil {
+    	color: rgba(0, 0, 0, 0.55);
+	    right: 20px;
+	    top: 30px;
+	    position: absolute;
+    }
+}
+
+.edit-comment {
+	height: 0;
+    left: 0;
+    overflow: visible;
+    position: absolute;
+    right: 0;
+    .glyphicon.glyphicon-pencil {
+    	color: rgba(0, 0, 0, 0.55);
+	    right: 30px;
+	    top: 10px;
+	    position: absolute;
+	    font-size: 11px;
+    }
+}
