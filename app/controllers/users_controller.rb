@@ -41,6 +41,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @entry = @user.entries.build
     @entries = @user.feed.paginate(page: params[:page])
   end
 
