@@ -90,3 +90,13 @@
 	    font-size: 11px;
     }
 }
+
+li.dropdown.edit {
+  position: absolute;
+  right: 0;
+  list-style: none;
+  .dropdown-menu {
+    margin-left: -160px;
+    margin-top: 25px;
+  }
+}

@@ -1,7 +1,7 @@
 class EntriesController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
-  before_action :set_entry, only: [:show, :edit, :update]
+  before_action :set_entry, only: [:show, :edit, :update, :destroy]
 
   def index
     @entries = Entry.all.paginate(page: params[:page])
@@ -37,6 +37,15 @@ class EntriesController < ApplicationController
       flash[:alert] = "Can not update entry"
       redirect_to root_path
     end
+  end
+
+  def destroy
+    if @entry.destroy
+      flash[:notice] = "Delete entry successfully"
+    else
+      flash[:alert] = "You can not delete this entry"
+    end
+    redirect_to current_user
   end
 
   private

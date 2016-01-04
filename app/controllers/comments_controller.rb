@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :correct_user, only: [:create]
   before_action :set_entry, only: [:create]
-  before_action :set_comment, only: [:edit, :update]
+  before_action :set_comment, only: [:edit, :update, :destroy]
   before_action :edit_permission, only: [:edit, :update, :destroy]
 
   def create
@@ -27,6 +27,16 @@ class CommentsController < ApplicationController
       flash[:alert] = "Can not edit comment"
     end
     redirect_to @comment.entry
+  end
+
+  def destroy
+    @entry = @comment.entry
+    if @comment.destroy
+      flash[:notice] = "You deleted comment"
+    else
+      flash[:alert] = "You can not delete this comment"
+    end
+    redirect_to @entry
   end
 
   private
