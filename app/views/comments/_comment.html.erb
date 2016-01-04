@@ -7,8 +7,12 @@
     <% end %>
     <p><strong><%= link_to user.name, user %></strong></p>
     <p><%= comment.content %></p>
-    <span>
-      <%= time_ago_in_words(comment.created_at) unless comment.created_at.blank? %> ago
+    <span class="time-ago">
+      <% unless comment.time_edit.nil? %>
+        <%= time_ago_in_words(comment.time_edit) %> ago. Edited
+      <% else %>
+        <%= time_ago_in_words(comment.created_at) unless comment.created_at.blank? %> ago
+      <% end %>
     </span>
     </div>
 </div>
